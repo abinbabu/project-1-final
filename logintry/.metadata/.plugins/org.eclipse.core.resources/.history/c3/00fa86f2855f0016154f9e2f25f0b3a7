@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
+<html>
+<head>
+<link href="<c:url value="/resources/css/reg.css" />"
+	rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Register User</title>
+</head>
+<body background="<c:url value="/resources/images/lighthous.png/" />">
+
+	
+  <div class="wrapper">
+  <h1>Register For An Account</h1>
+  <p>To sign-up for a free basic account please provide us with some basic information using
+  the contact form below. Please use valid credentials.</p>
+  <form:form action="here/register" method="post" modelAttribute="user">
+    <input type="text" class="id" path="id" placeholder="id">
+    <input type="text" path="name" class="name" placeholder="Name">
+    <input type="text" path="password" class="paswrd" placeholder="password">
+    <input type="number"path="contactnumber" class="nmuber" placeholder="contact number">
+    <input type="email" path="mailid" class="email" placeholder="Email">
+    <input type="text" path="address" class="adress" placeholder="address">
+    <input type="submit" class="submit" value="Register">
+  </form>
+</div>
+	</form:form>
+
+	
+
+</body>
+</html>

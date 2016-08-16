@@ -1,0 +1,98 @@
+package com.niit.shoppingcart.controller;
+
+import javax.enterprise.inject.Model;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.niit.shoppingcart.model.Category;
+import com.niit.shoppingcart.model.Supplier;
+import com.niit.shoppingcart.model.User;
+import com.niit.shopppingcartdao.CategoryDAO;
+import com.niit.shopppingcartdao.SupplierDAO;
+import com.niit.shopppingcartdao.UserDAO;
+
+
+
+
+@Controller
+public class MyController {
+	
+	@Autowired
+	CategoryDAO categoryDAO;
+	
+	@Autowired
+	SupplierDAO supplierDAO;
+	
+	
+	@Autowired
+	User user;
+	
+	@Autowired
+	UserDAO userDAO;
+	@RequestMapping("/")
+	public ModelAndView myfun1()
+	{
+	  ModelAndView mv=new ModelAndView("/home");
+	  return mv;
+		
+	}
+	
+	
+	@RequestMapping("/loginhere")
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView("/home");
+		mv.addObject("isUserClickedLoginHere", "true");
+		return mv;
+	}
+	@RequestMapping("/register")
+	public ModelAndView register() {
+		ModelAndView mv = new ModelAndView("/home");
+		mv.addObject("user", user);
+		mv.addObject("isUserClickedRegisterHere", "true");
+		return mv;
+	}	
+	
+	@RequestMapping(value = "here/register", method = RequestMethod.POST)
+	public ModelAndView registerUser(@ModelAttribute User user) {
+	    userDAO.saveOrUpdate(user);
+		ModelAndView mv = new ModelAndView("/home");
+		mv.addObject("successMessage", "You are successfully register");
+
+		return mv;
+	}
+	@RequestMapping(value="/to_add_category",method=RequestMethod.POST)
+	public ModelAndView addCategory(@ModelAttribute Category category)
+	{
+		categoryDAO.saveOrUpdate(category);
+		ModelAndView mv=new ModelAndView("/home");
+		mv.addObject("categorySuccessMsg", "Category successfully added");
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/to_add_supplier",method=RequestMethod.POST)
+	public ModelAndView addSupplier(@ModelAttribute Supplier supplier)
+	{
+		supplierDAO.saveOrUpdate(supplier);
+		ModelAndView mv=new ModelAndView("/home");
+		mv.addObject("supplierSuccessMsg", "supplier successfully added");
+		return mv;
+	}
+	
+	@RequestMapping("/category/remove/{id}")
+	public String deleteCategory (@PathVariable("id") String id)
+	{
+		
+		categoryDAO.delete(id);
+		return "categories";
+	}
+	
+
+}
+

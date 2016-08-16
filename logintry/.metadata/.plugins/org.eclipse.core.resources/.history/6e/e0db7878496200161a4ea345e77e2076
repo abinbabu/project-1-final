@@ -1,0 +1,19 @@
+
+
+body, html {
+    height: 50%;
+}
+
+.parallaxx {
+    /* The image used */
+    background-image: url('http://www.bstlhj6.com/data/out/174/5188944-shopping-wallpapers.jpg');
+
+    /* Full height */
+    height: 50%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

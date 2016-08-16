@@ -1,0 +1,14 @@
+package com.niit.shoppingcart.controller;
+
+public class CategoryController {
+	
+	@RequestMapping(value="/addCategory",method=RequestMethod.POST)
+	public ModelAndView addCategory(@ModelAttribute Category category)
+	{
+		//categoryDAO.saveOrUpdate(category);
+		ModelAndView mv=new ModelAndView("/home");
+		mv.addObject("categorySuccessMsg", "Category successfully added");
+		return mv;
+	}
+
+}
