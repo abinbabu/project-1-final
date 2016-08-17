@@ -2,9 +2,11 @@ package com.niit.shoppingcartback;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-
 import com.niit.shoppingcart.model.User;
 import com.niit.shopppingcartdao.UserDAO;
+
+
+
 
 public class UserTest {
 

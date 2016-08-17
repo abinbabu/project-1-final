@@ -2,6 +2,8 @@ package com.niit.shoppingcart.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -16,9 +18,16 @@ public class Cart {
 	private int price;
 	private int quantity;
 	private int total;
-	private String userId;
+	
 	private String productName;
 	private String status;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+
+	
 	public String getId() {
 		return id;
 	}
@@ -43,12 +52,7 @@ public class Cart {
 	public void setTotal(int total) {
 		this.total = total;
 	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+	
 	public String getProductName() {
 		return productName;
 	}
@@ -60,6 +64,12 @@ public class Cart {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	

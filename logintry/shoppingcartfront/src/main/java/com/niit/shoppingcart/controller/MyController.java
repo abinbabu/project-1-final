@@ -3,6 +3,8 @@ package com.niit.shoppingcart.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,7 +24,7 @@ import com.niit.shopppingcartdao.UserDAO;
 public class MyController {
 	
 
-	
+	Logger log = LoggerFactory.getLogger(MyController.class);
 	
 	@Autowired
 	User user;
@@ -39,10 +41,11 @@ public class MyController {
 	@RequestMapping("/")
 	public ModelAndView myfun1(HttpSession session)
 	{
+	 log.debug("Starting of the method onLoad");
 	  ModelAndView mv=new ModelAndView("/home");
 	  session.setAttribute("category",category);
 	  session.setAttribute("categoryList", categoryDAO.list());
-	  
+	  log.debug("Ending of the method onLoad");
 	  
 	  return mv;
 		

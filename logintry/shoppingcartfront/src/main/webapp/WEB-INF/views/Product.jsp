@@ -43,7 +43,8 @@
 				</form:label></td>
 			<td><form:input path="name" required="true"></form:input></td>
 		</tr>
-
+		
+		
 		<tr>
 			<td style=" font-family: verdana; color: #00000F"><form:label path="description">
 					<spring:message text="ProductDescription"></spring:message>
@@ -69,7 +70,9 @@
 					</c:if></td>
 			</tr>
 	</table>
+	
 	</form:form>
+	
 	
 	<h2 style=" font-family: verdana; color: #00000F;text-align: center">LIST OF PRODUCTS</h2>
 	<c:if test="${!empty productList}">

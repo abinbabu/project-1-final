@@ -4,6 +4,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,41 +14,56 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * Handles requests  for the application file upload requests
- */  
+ * Handles requests for the application file upload requests
+ */
 @Controller
 public class FileUploadController {
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(FileUploadController.class);
 
 	/**
 	 * Upload single file using Spring Controller
 	 */
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-	public @ResponseBody String handleFileUpload(
-            @RequestParam("file") MultipartFile file){
-        String name = file.getOriginalFilename();
-       String path = "D:\\shoppingcart\\img";
-        if (!file.isEmpty()) {
-            try {
-            	
-            	File imgDirectory = new File(path);
-            	if(!imgDirectory.exists())
-            	{
-            		imgDirectory.mkdir();
-            	}
-            	
-                byte[] bytes = file.getBytes();
-                BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(path+"\\"+name)));
-                stream.write(bytes);
-                stream.close();
-                return "You successfully uploaded " + name + " into " + name + "-uploaded !";
-            } catch (Exception e) {
-                return "You failed to upload " + name + " => " + e.getMessage();
-            }
-        } else {
-            return "You failed to upload " + name + " because the file was empty.";
-        }
-    }
+	public @ResponseBody
+	String uploadFileHandler(
+			@RequestParam("file") MultipartFile file) {
+		String name = file.getOriginalFilename();
+		String path="D:\\fileupload";
+
+		if (!file.isEmpty()) {
+			try {
+				
+				
+				
+
+				// Creating the directory to store file
+				
+				File dir = new File(path);
+				if (!dir.exists())
+					dir.mkdirs();
+				byte[] bytes = file.getBytes();
+
+				// Create the file on server
+			
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(new File(path+"\\"+name)));
+				stream.write(bytes);
+				stream.close();
+
+				logger.info("File Location="
+						+ dir.getAbsolutePath());
+
+				return "You successfully uploaded " + name + " into " + name + "-uploaded !";
+			} catch (Exception e) {
+				return "You failed to upload " + name + " => " + e.getMessage();
+			}
+		} else {
+			return "You failed to upload " + name
+					+ " because the file was empty.";
+		}
+	}
 
 	/**
 	 * Upload multiple file using Spring Controller
@@ -80,9 +97,11 @@ public class FileUploadController {
 				stream.write(bytes);
 				stream.close();
 
-				
+				logger.info("Server File Location="
+						+ serverFile.getAbsolutePath());
+
 				message = message + "You successfully uploaded file=" + name
-						+ "";
+						+ "<br />";
 			} catch (Exception e) {
 				return "You failed to upload " + name + " => " + e.getMessage();
 			}
