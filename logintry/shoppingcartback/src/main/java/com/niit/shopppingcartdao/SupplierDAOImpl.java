@@ -58,4 +58,18 @@ public class SupplierDAOImpl implements SupplierDAO {
 		return listSupplier;
 	}
 
+	@Transactional
+	public Supplier getByName(String name) {
+		String hql = "from Supplier where name=" + "'"+ name+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Supplier> list = (List<Supplier>) query.list();
+		
+		if (list != null && !list.isEmpty()) {
+			return list.get(0);
+		}
+		
+		return null;
+	}
 }

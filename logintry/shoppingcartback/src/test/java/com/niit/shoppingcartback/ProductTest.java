@@ -21,7 +21,7 @@ public class ProductTest {
 		
 		// Create Operation
 		
-		product.setId("pr1");
+		product.setId("prfjf");
 		product.setName("samsung");
 		product.setDescription("mobile electronics");
 		product.setPrice(15000);

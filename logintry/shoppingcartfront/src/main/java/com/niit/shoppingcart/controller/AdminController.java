@@ -46,13 +46,16 @@ public class AdminController {
 		return mv;
 	}
 
-	@RequestMapping("products")
+	@RequestMapping("/manageProducts")
 	public ModelAndView product() {
 
 		ModelAndView mv = new ModelAndView("/home");
-		mv.addObject("product", product);
 		mv.addObject("isAdminClickedProduct", "true");
+		mv.addObject("product", product);
+		
 		mv.addObject("productList", productDAO.list());
+		mv.addObject("categoryList", categoryDAO.list());
+		mv.addObject("supplierList", supplierDAO.list());
 		return mv;
 	}
 

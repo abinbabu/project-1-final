@@ -1,5 +1,7 @@
 package com.niit.shoppingcart.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,44 +10,75 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
-
+import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
-import com.niit.shoppingcart.util.Util;
+import com.niit.shoppingcart.model.Supplier;
+import com.niit.shopppingcartdao.CategoryDAO;
 import com.niit.shopppingcartdao.ProductDAO;
+import com.niit.shopppingcartdao.SupplierDAO;
+import com.niit.shoppingcart.util.FileUtil;
+import com.niit.shoppingcart.util.Util;
 
 @Controller
 public class ProductController {
 	
-	
+	Logger log = LoggerFactory.getLogger(ProductController.class);
 	@Autowired
 	Product product;
 	
 	@Autowired
 	ProductDAO productDAO;
 	
-	private String path = "D:\\cart";
+	@Autowired
+	private CategoryDAO categoryDAO;
+
+	@Autowired
+	private SupplierDAO supplierDAO;
+	
+	
+	
+	private String path = "D:\\fileupload\\image\\";
 	
 	@RequestMapping(value = "/Products", method = RequestMethod.GET)
 	public String listProducts(Model model) {
 		model.addAttribute("isAdminClickedProduct", "true");
 		model.addAttribute("product", product);
-		model.addAttribute("productList", this.productDAO.list());
+		model.addAttribute("category",new Category());
+		model.addAttribute("supplier", new Supplier());
+		model.addAttribute("productList", productDAO.list());
+		model.addAttribute("categoryList", categoryDAO.list());
+		model.addAttribute("supplierList", supplierDAO.list());
 		return "home";
 	}
 
 	@RequestMapping(value = "/to_add_product", method = RequestMethod.POST)
 	public String addProducts(@ModelAttribute("product") Product product) {
 		
-		String newID=Util.removeComma(product.getId());
+		System.out.println(product.getId() +"\n" +product.getName() +"\n" + product.getPrice() +"\n" + product.getDescription() +"\n" +  categoryDAO.getByName(product.getCategory().getName()) +"\n" +  supplierDAO.getByName(product.getSupplier().getName()));
+		
+		Category category = categoryDAO.getByName(product.getCategory().getName());
+		categoryDAO.saveOrUpdate(category); // why to save??
+
+		Supplier supplier = supplierDAO.getByName(product.getSupplier().getName());
+		supplierDAO.saveOrUpdate(supplier); // Why to save??
+
+		product.setCategory(category);
+		product.setSupplier(supplier);
+
+		product.setCategory_id(category.getId());
+		product.setSupplier_id(supplier.getId());   
+		
+		String newID = Util.removeComma(product.getId());
 		product.setId(newID);
 		
 		productDAO.saveOrUpdate(product);
  
-//		MultipartFile file=product.getImage();
-//		FileUtil.uplaod(path, file,product.getId()+".jpg");
-//		
-		return "redirect:/Products";
+		MultipartFile file=product.getImage();
+		FileUtil.upload(path, file,product.getId()+".jpg");
+		
+		return "redirect:/manageProducts";
 	}
 	
 	@RequestMapping(value = "product/remove/{id}")
@@ -66,6 +99,8 @@ public class ProductController {
 		product=productDAO.get(id);
 		model.addAttribute("product", product);
 		model.addAttribute("productList", productDAO.list());
+		model.addAttribute("categoryList", categoryDAO.list());
+		model.addAttribute("supplierList",supplierDAO.list());
 
 		return "redirect:/Products";
 	}

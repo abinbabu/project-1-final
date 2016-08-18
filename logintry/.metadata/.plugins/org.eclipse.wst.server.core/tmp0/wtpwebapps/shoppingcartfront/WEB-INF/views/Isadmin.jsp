@@ -25,7 +25,7 @@
 			<td align="left"><a href="manageCategories"
 				style="textfont-size: 200%; font-family: verdana; color: #00000F">Manage
 					Categories</a></td>
-			<td align="right"><a href="products"
+			<td align="right"><a href="Products"
 				style="textfont-size: 200%; font-family: verdana; color: #00000F">Manage
 					Products</a></td>
 			<td align="center"><a href="suppliers"
