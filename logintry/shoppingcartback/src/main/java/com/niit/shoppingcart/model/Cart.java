@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Cart {
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private int price;
 	private int quantity;

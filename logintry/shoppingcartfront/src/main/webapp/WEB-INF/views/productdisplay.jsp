@@ -36,7 +36,7 @@
 							<td align="left">${selectedProduct.category.name}</td>
 							<td align="left">${selectedProduct.supplier.name}</td>
 							<td><a href="<c:url value='addc/${cart.id}' />">add to cart</a></td>
-							
+							<img src="<c:url value = 'D:\fileupload\image\s${selectedProduct.id}.jpg"' />" alt="" />
 
 
 							
@@ -44,6 +44,6 @@
 					</table>
 				</c:if>
 			</div>
-			<img src="<c:url value = 'D:\fileupload\image\s${product.id}.jpg"' />" alt="" />
+			
 </body>
 </html>
