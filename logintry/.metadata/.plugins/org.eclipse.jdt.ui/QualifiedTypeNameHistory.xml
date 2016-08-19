@@ -40,15 +40,18 @@
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="com.niit.shopppingcartdao.UserDAO"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.User"/>
-<fullyQualifiedTypeName name="com.niit.shopppingcartdao.CartDAO"/>
-<fullyQualifiedTypeName name="com.niit.shoppingcart.model.Cart"/>
 <fullyQualifiedTypeName name="javax.persistence.Transient"/>
 <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
-<fullyQualifiedTypeName name="com.niit.shopppingcartdao.CategoryDAO"/>
 <fullyQualifiedTypeName name="com.niit.shopppingcartdao.SupplierDAO"/>
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
 <fullyQualifiedTypeName name="org.slf4j.Logger"/>
-<fullyQualifiedTypeName name="com.niit.shoppingcart.model.Category"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.Supplier"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.util.Util"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
+<fullyQualifiedTypeName name="com.niit.shoppingcart.model.Cart"/>
+<fullyQualifiedTypeName name="com.niit.shopppingcartdao.CartDAO"/>
+<fullyQualifiedTypeName name="com.niit.shopppingcartdao.CategoryDAO"/>
+<fullyQualifiedTypeName name="com.niit.shoppingcart.model.Category"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
 </qualifiedTypeNameHistroy>

@@ -8,7 +8,7 @@ public interface CartDAO {
 	
 public List<Cart> listCart();
 	
-	public Cart get(String id);
+	public Cart get(int id);
 	
 	public void saveOrUpdate(Cart cart);
 	

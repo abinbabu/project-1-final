@@ -272,6 +272,10 @@
 								<td align="left">${cart.price}</td>
 								<td align="left"><a
 									href="<c:url value='/cart/delete/${cart.id}'  />">Delete</a></td>
+									
+								<%--	<td align="left"><a
+									href="<c:url value='/cart/add/${cart.id}'  />">Add</a></td> --%>
+									
 								<td align="left"><a href="<c:url value='pay/${cart.id}' />">
 										Proceed</a></td>
 							</tr>

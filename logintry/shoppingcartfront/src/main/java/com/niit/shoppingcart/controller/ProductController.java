@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.niit.shoppingcart.model.Cart;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
 import com.niit.shoppingcart.model.Supplier;
+import com.niit.shopppingcartdao.CartDAO;
 import com.niit.shopppingcartdao.CategoryDAO;
 import com.niit.shopppingcartdao.ProductDAO;
 import com.niit.shopppingcartdao.SupplierDAO;
@@ -37,7 +40,8 @@ public class ProductController {
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
-	
+	@Autowired
+	private CartDAO cartDAO;
 	
 	private String path = "D:\\fileupload\\image\\";
 	
@@ -106,8 +110,15 @@ public class ProductController {
 	}
 
 
-	
-	
+	@RequestMapping(value = "product/get/{id}")
+	public String getSelectedProduct(@PathVariable("id") String id, Model model) {
+		model.addAttribute("selectedProduct", this.productDAO.get(id));
+		model.addAttribute("categoryList", this.categoryDAO.list());
+
+		return "productdisplay";
+
+	}
+
 	
 
 }

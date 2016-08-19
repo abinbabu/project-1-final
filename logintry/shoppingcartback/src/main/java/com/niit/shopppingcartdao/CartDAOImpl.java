@@ -30,7 +30,7 @@ public class CartDAOImpl implements CartDAO {
 	}
 	
 	@Transactional
-	public String delete(String id)
+	public String delete(int id)
 	{
 		Cart CartToDelete=new Cart();
 		CartToDelete.setId(id);
@@ -65,6 +65,16 @@ public class CartDAOImpl implements CartDAO {
 	public int getTotal(String id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public Cart get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String delete(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

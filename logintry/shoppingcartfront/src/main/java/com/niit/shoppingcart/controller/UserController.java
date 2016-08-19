@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingcart.model.Cart;
+import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.User;
 import com.niit.shopppingcartdao.CartDAO;
+import com.niit.shopppingcartdao.CategoryDAO;
 import com.niit.shopppingcartdao.UserDAO;
 
 @Controller
@@ -33,6 +35,12 @@ public class UserController {
 	
 	@Autowired
 	Cart cart;
+	
+	@Autowired
+	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private Category category;
 
 	@RequestMapping("/login")
 	public ModelAndView isValidUser(@RequestParam(value = "name") String name,
@@ -77,8 +85,8 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("home");
 		session.invalidate();
 		session = request.getSession(true);
-//		session.setAttribute("category", category);
-//		session.setAttribute("categoryList", categoryDAO.list());
+		session.setAttribute("category", category);
+		session.setAttribute("categoryList", categoryDAO.list());
 	
 		mv.addObject("logoutMessage", "You successfully logged out");
 		mv.addObject("loggedOut", "true");

@@ -52,22 +52,26 @@ public class CartController {
 	
 	
 	//For add and update cart both
-//	@RequestMapping(value= "/cart/add/{id}", method = RequestMethod.GET)
-//	public String addToCart(@PathVariable("id") String id){
-//		
-//	
-//	 Product product =	 productDAO.get(id);
-//	 Cart cart = new Cart();
-//	 cart.setPrice(product.getPrice());
-//	 cart.setProductName(product.getName());
-//	 cart.setQuantity(1);
-//	 cart.setId("user");  //  id should keep session and use the same id
+	@RequestMapping(value= "addc/{id}", method = RequestMethod.GET)
+	public String addToCart(@PathVariable("id") String id){
+		
+
+
+	 Product product =	 productDAO.get(id);
+	 
+	 
+	 
+	 Cart cart = new Cart();
+	 cart.setPrice(product.getPrice());
+	 cart.setProductName(product.getName());
+	 cart.setQuantity(1);
+	 cart.setId(1);  //  id should keep session and use the same id
 //	 cart.setStatus('N');  // 
-//		cartDAO.saveOrUpdate(cart);
-//		//return "redirect:/views/home.jsp";
-//		return "redirect:/onLoad";
-//		
-//	}
+		cartDAO.saveOrUpdate(cart);
+		//return "redirect:/views/home.jsp";
+		return "redirect:/home";
+		
+	}
 	
 	@RequestMapping("/cart/delete/{id}")
     public String removeCart(@PathVariable("id") String id,ModelMap model) throws Exception{
@@ -84,7 +88,7 @@ public class CartController {
     }
  
     @RequestMapping("cart/edit/{id}")
-    public String editCart(@PathVariable("id") String id, Model model){
+    public String editCart(@PathVariable("id") int id, Model model){
     	System.out.println("editCart");
         model.addAttribute("cart", this.cartDAO.get(id));
         model.addAttribute("listCarts", this.cartDAO.listCart());

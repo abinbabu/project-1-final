@@ -21,9 +21,9 @@ AnnotationConfigApplicationContext con = new AnnotationConfigApplicationContext(
 		CartDAO cartDAO =  (CartDAO) con.getBean("cartDAO");
 		UserDAO userDAO = (UserDAO) con.getBean("userDao");
 		User user = (User) con.getBean("user");	
-		 user=userDAO.get("abin");
+		 user=userDAO.get("niit");
 		Cart cart= (Cart) con.getBean("cart");
-		cart.setId("CART4");
+//		cart.setId("CART4");
 		cart.setPrice(100);
 		cart.setQuantity(2);
 		cart.setTotal(200);
@@ -31,7 +31,7 @@ AnnotationConfigApplicationContext con = new AnnotationConfigApplicationContext(
 		cart.setStatus("N");
 		cart.setUser(user);
 		
-		//cartDAO.saveOrUpdate(cart);
+		cartDAO.saveOrUpdate(cart);
 		
 	
 		System.out.println(user.getId());

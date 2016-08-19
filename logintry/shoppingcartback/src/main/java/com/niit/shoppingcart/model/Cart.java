@@ -1,6 +1,8 @@
 package com.niit.shoppingcart.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,8 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Cart {
 	
-	@Id
-	private String id;
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	private int price;
 	private int quantity;
 	private int total;
@@ -28,10 +30,10 @@ public class Cart {
 	
 
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public int getPrice() {
