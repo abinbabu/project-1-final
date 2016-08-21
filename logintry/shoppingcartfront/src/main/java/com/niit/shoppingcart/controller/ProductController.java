@@ -21,6 +21,7 @@ import com.niit.shopppingcartdao.CartDAO;
 import com.niit.shopppingcartdao.CategoryDAO;
 import com.niit.shopppingcartdao.ProductDAO;
 import com.niit.shopppingcartdao.SupplierDAO;
+import com.niit.shopppingcartdao.UserDAO;
 import com.niit.shoppingcart.util.FileUtil;
 import com.niit.shoppingcart.util.Util;
 
@@ -42,6 +43,9 @@ public class ProductController {
 	
 	@Autowired
 	private CartDAO cartDAO;
+	
+	@Autowired(required=true)
+	private UserDAO userDAO;
 	
 	private String path = "D:\\fileupload\\image\\";
 	
@@ -114,11 +118,49 @@ public class ProductController {
 	public String getSelectedProduct(@PathVariable("id") String id, Model model) {
 		model.addAttribute("selectedProduct", this.productDAO.get(id));
 		model.addAttribute("categoryList", this.categoryDAO.list());
-
-		return "productdisplay";
+		//model.addAttribute("isUserClickedproduct", "true");
+        
+		
+		
+		return "home";
 
 	}
+	
+	
+	@RequestMapping(value= "product/get/addc/{id}", method = RequestMethod.GET)
+	public String addToCart(@PathVariable("id") String id){
+		
+	System.out.println("*****************************************working***************************************************************************************");
+	 Product product =	 productDAO.get(id);
+	 Cart cart = new Cart();
+	 cart.setPrice(product.getPrice());
+	 cart.setProductName(product.getName());
+	 cart.setQuantity(1);
+	 cart.setId(1);  //  id should keep session and use the same id
+	 cart.setStatus("Y");
+	 cart.setTotal(product.getPrice());// 
+		cartDAO.saveOrUpdate(cart);
+//		//return "redirect:/views/home.jsp";
+		return "/home";
+		
+	}
 
+	@RequestMapping(value = "product/get/addc/myCart", method = RequestMethod.GET)
+	public String myCart(Model model) {
+		model.addAttribute("category", new Category());
+		model.addAttribute("categoryList", categoryDAO.list());
+	
+		model.addAttribute("cart", new Cart());
+		model.addAttribute("cartList", this.cartDAO.listCart());
+		model.addAttribute("totalAmount", cartDAO.getTotal("user")); // Just to test, passwrdo user
+		model.addAttribute("displayCart", "true");
+		return "/home";
+	}
 	
 
+	@RequestMapping(value = "product/get/addc/pay/{id}")
+	public String mypayment(Model model) {
+		
+		return "lastpage";
+	}
 }

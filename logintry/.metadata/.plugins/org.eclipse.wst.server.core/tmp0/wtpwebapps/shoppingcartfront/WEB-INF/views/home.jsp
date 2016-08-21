@@ -232,6 +232,7 @@
 							<th align="left" width="80">Price</th>
 							<th align="left" width="200">Product Category</th>
 							<th align="left" width="200">Product Supplier</th>
+							<th align="left" width="200">add to cart</th>
 
 						</tr>
 						<tr>
@@ -241,18 +242,15 @@
 							<td align="left">${selectedProduct.price}</td>
 							<td align="left">${selectedProduct.category.name}</td>
 							<td align="left">${selectedProduct.supplier.name}</td>
+							<td><a href="<c:url value='addc/${selectedProduct.id}' />">add to cart</a></td>
+							<img src="<c:url value = 'D:\fileupload\image\s${selectedProduct.id}.jpg"' />" alt="" />
 						</tr>
 					</table>
 				</c:if>
 			</div>
 
 
-
-
-
-
-
-<div id="myCart">
+<div id="displayCart">
 				<c:if test="${displayCart==true}">
 
 					<table>
@@ -261,7 +259,7 @@
 							<th align="left" width="120">Product Name</th>
 							<th align="left" width="200">Quantity</th>
 							<th align="left" width="80">Price</th>
-							<th align="left" width="60">Delete from Cart</th>
+							
 
 						</tr>
 						<c:forEach items="${cartList}" var="cart">
@@ -270,11 +268,7 @@
 								<td align="left">${cart.productName}</td>
 								<td align="left">${cart.quantity}</td>
 								<td align="left">${cart.price}</td>
-								<td align="left"><a
-									href="<c:url value='/cart/delete/${cart.id}'  />">Delete</a></td>
-									
-								<%--	<td align="left"><a
-									href="<c:url value='/cart/add/${cart.id}'  />">Add</a></td> --%>
+							
 									
 								<td align="left"><a href="<c:url value='pay/${cart.id}' />">
 										Proceed</a></td>
@@ -282,17 +276,13 @@
 						</c:forEach>
 
 					</table>
-					
-			<%--		<h2>Total cost : ${totalAmount}</h2>
+
+				<%--	<h2>Total cost : ${totalAmount}</h2>
 					 <a href="<c:url value='/pay/${cart.userID}'/>">Proceed</a>  
-					<a href="<c:url value='/pay/${cart.id}'/>">Proceed</a> --%>
-					
-					</c:if>
-					</div>
+					<a href="<c:url value='/pay/${cart.id}'/>">Proceed</a>--%>
+				</c:if>
 
-
-
-
+			</div>
 
 
 
@@ -321,8 +311,7 @@
 			</tr>
 			<tr>
 					
-						<td align="right"><a href="myCart"> My Cart </a>( ${cartSize}
-							)</td>
+						<td align="right"><a href="myCart"> My Cart </a></td>
 					
 				</tr>
 		</table>
@@ -370,59 +359,6 @@
 			</c:if>
 		</div>
 		
-	
-	
-	
-	
-	<div class="container" id="tourpackages-carousel">
-      
-      <div class="row">
-        
-        <div class="col-xs-18 col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="<c:url value="/resources/images/thumb13.PNG/" />" alt="">
-              <div class="caption">
-                <h4>limited offer</h4>
-                
-                <p><a href="#" class="btn btn-info btn-xs" role="button">BUY</a> 
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-18 col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="<c:url value="/resources/images/thumb14.PNG/" />" alt="">
-              <div class="caption">
-                <h4>coming soon</h4>
-                   <p><a href="#" class="btn btn-info btn-xs" role="button">BUY</a> 
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-18 col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="<c:url value="/resources/images/thumb15.PNG/" />" alt="">
-              <div class="caption">
-                <h4>coming soon</h4>
-                <p><a href="http://www.flipkart.com/roopkala-silks-plain-chanderi-polycotton-sari/p/itmecs3gcdfgabum?pid=SARECS3GVZUQNUSN&al=3JZrPtpo9AYMkZCV4JBey8ldugMWZuE7eGHgUTGjVrpHfuDG0toaOrkpKM1OjAX6yp5wAZMweBU%3D&ref=L%3A5932318478141181534&srno=b_1&findingMethod=OMU&otracker=hp_omu_The%20Flipkart%20Fashion%20Sale_4_3bcf10ed-1007-4307-8b07-141aea155060_3" class="btn btn-info btn-xs" role="button">BUY</a> 
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-18 col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="<c:url value="/resources/images/thumb16.PNG/" />" alt="">
-              <div class="caption">
-                <h4>limited offer</h4>
-                <p><a href="#" class="btn btn-info btn-xs" role="button">BUY</a> 
-            </div>
-          </div>
-        </div>
-        
-      </div><!-- End row -->
-      
-    </div><!-- End container -->	
-</div>
 	
 	
 	

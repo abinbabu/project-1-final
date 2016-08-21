@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import com.niit.shoppingcart.model.Cart;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
@@ -16,9 +17,10 @@ import com.niit.shopppingcartdao.CartDAO;
 import com.niit.shopppingcartdao.CategoryDAO;
 import com.niit.shopppingcartdao.ProductDAO;
 
+
 @Controller
 public class CartController {
-
+	
 	
 	@Autowired(required=true)
 	private CartDAO cartDAO;
@@ -52,28 +54,24 @@ public class CartController {
 	
 	
 	//For add and update cart both
-	@RequestMapping(value= "addc/{id}", method = RequestMethod.GET)
-	public String addToCart(@PathVariable("id") String id){
-		
-
-
-	 Product product =	 productDAO.get(id);
-	 
-	 
-	 
-	 Cart cart = new Cart();
-	 cart.setPrice(product.getPrice());
-	 cart.setProductName(product.getName());
-	 cart.setQuantity(1);
-	 cart.setId(1);  //  id should keep session and use the same id
-//	 cart.setStatus('N');  // 
-		cartDAO.saveOrUpdate(cart);
-		//return "redirect:/views/home.jsp";
-		return "redirect:/home";
-		
-	}
+//	@RequestMapping(value= "addc/{id}", method = RequestMethod.GET)
+//	public String addToCart(@PathVariable("id") String id){
+//		
+//	System.out.println("****************************************************************************************************************************************");
+//	 Product product =	 productDAO.get(id);
+//	 Cart cart = new Cart();
+//	 cart.setPrice(product.getPrice());
+//	 cart.setProductName(product.getName());
+//	 cart.setQuantity(1);
+//	 cart.setId(1);  //  id should keep session and use the same id
+//	 cart.setStatus("N");  // 
+//		cartDAO.saveOrUpdate(cart);
+//		//return "redirect:/views/home.jsp";
+//		return "/home";
+//		
+//	}
 	
-	@RequestMapping("/cart/delete/{id}")
+	@RequestMapping("cart/delete/{id}")
     public String removeCart(@PathVariable("id") String id,ModelMap model) throws Exception{
 		
        try {
@@ -84,14 +82,15 @@ public class CartController {
 		e.printStackTrace();
 	}
        //redirectAttrs.addFlashAttribute(arg0, arg1)
-        return "redirect:/home";
+        return "/home";
     }
  
-    @RequestMapping("cart/edit/{id}")
-    public String editCart(@PathVariable("id") int id, Model model){
-    	System.out.println("editCart");
-        model.addAttribute("cart", this.cartDAO.get(id));
-        model.addAttribute("listCarts", this.cartDAO.listCart());
-        return "cart";
-    }
-}
+//    @RequestMapping("cart/edit/{id}")
+//    public String editCart(@PathVariable("id") int id, Model model){
+//    	System.out.println("editCart");
+//        model.addAttribute("cart", this.cartDAO.get(id));
+//        model.addAttribute("listCarts", this.cartDAO.listCart());
+//        return "cart";
+//    }
+    
+	}

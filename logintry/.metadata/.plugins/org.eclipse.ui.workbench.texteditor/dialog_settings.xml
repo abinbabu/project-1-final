@@ -2,15 +2,18 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="#00000F" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="shoppingcart" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="shopingcart"/>
+			<item value="yup cart"/>
 			<item value="#FFFFFF"/>
 		</list>
 		<list key="replacehistory">
+			<item value="shoppingcart"/>
 			<item value="#00000F"/>
 			<item value="#FFFFFF"/>
 		</list>
