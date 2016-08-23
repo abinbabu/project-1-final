@@ -189,18 +189,4 @@ public class ProductController {
        //redirectAttrs.addFlashAttribute(arg0, arg1)
         return "redirect:/";
     }
-	
-	
-	@RequestMapping(value="deletec/{id}")
-    public String removeCarts(@PathVariable("id") int id,ModelMap model) throws Exception{
-		System.out.println("inside removing***********************************************************************************"+id);
-       
-		cartDAO.delete(id);
-		model.addAttribute("message","Successfully removed");
-	
-		
-		
-       //redirectAttrs.addFlashAttribute(arg0, arg1)
-        return "redirect:/";
-    }
 }

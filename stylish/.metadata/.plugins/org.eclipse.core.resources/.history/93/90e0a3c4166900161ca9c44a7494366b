@@ -191,7 +191,7 @@ public class ProductController {
     }
 	
 	
-	@RequestMapping(value="deletec/{id}")
+	@RequestMapping(value="shoppingcartfront/deletec{id}")
     public String removeCarts(@PathVariable("id") int id,ModelMap model) throws Exception{
 		System.out.println("inside removing***********************************************************************************"+id);
        
