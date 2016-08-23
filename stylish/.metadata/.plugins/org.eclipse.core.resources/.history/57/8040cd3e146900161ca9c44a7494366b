@@ -12,7 +12,7 @@ public List<Cart> listCart();
 	
 	public void saveOrUpdate(Cart cart);
 	
-	public String delete(int id);
+	public String delete(String id);
 	
 	public int getTotal(String id);
 

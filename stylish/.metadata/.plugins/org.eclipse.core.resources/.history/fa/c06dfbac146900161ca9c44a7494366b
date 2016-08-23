@@ -187,6 +187,6 @@ public class ProductController {
 		
 		
        //redirectAttrs.addFlashAttribute(arg0, arg1)
-        return "redirect:/";
+        return "/home";
     }
 }
