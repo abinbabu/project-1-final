@@ -1,7 +1,0 @@
-package com.niit.shoppingcart.test;
-
-import junit.framework.TestCase;
-
-public class TestCategoryDAO extends TestCase {
-
-}
