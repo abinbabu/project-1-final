@@ -1,8 +1,12 @@
 package com.niit.shoppingcart.handler;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
+import org.springframework.webflow.execution.RequestContext;
 
 import com.niit.shoppingcart.model.User;
 
@@ -15,7 +19,7 @@ public class RegistrationHandler {
 	
 	public String validateDetails(User user,MessageContext messageContext) {
 		String status="success";
-		System.out.println("fdsgsdhfshfshgfhgf----------------****");
+		
 		
 		if(user.getId().isEmpty()) {
 			
@@ -47,4 +51,9 @@ public class RegistrationHandler {
 		
 		return status;
 	}
+	
+	public void add(RequestContext context, User user){
+	    HttpSession session = ((HttpServletRequest)context.getExternalContext().getNativeRequest()).getSession();
+	              session.setAttribute("user",user);
+	       }
 }

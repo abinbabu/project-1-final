@@ -26,7 +26,7 @@
 <body background="<c:url value="/resources/images/reg.png/" />"> 
 
 	
-    <form:form action="here/register" modelAttribute="user" method="post">
+    <form:form  modelAttribute="user" >
     </br></br></br></br></br></br></br></br></br></br></br></br>
 		<table align="center">
 			<tr>

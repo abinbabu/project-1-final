@@ -69,8 +69,9 @@ public class MyController {
 
 
 	
-	@RequestMapping(value = "here/register", method = RequestMethod.POST)
-	public ModelAndView registerUser(@ModelAttribute User user) {
+	@RequestMapping(value = "here/register", method = RequestMethod.GET)
+	public ModelAndView registerUser(HttpSession session) {
+		User user = (User) session.getAttribute("user");
 	    userDAO.saveOrUpdate(user);
 		ModelAndView mv = new ModelAndView("/home");
 		mv.addObject("successMessage", "You are successfully register");

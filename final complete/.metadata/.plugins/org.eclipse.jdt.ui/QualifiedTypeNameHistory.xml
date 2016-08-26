@@ -55,4 +55,5 @@
 <fullyQualifiedTypeName name="com.niit.shopppingcartdao.CategoryDAO"/>
 <fullyQualifiedTypeName name="org.h2.engine.User"/>
 <fullyQualifiedTypeName name="com.niit.shoppingcart.model.User"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
 </qualifiedTypeNameHistroy>

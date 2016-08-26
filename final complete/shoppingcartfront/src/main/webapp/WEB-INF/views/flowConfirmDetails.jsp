@@ -15,7 +15,7 @@
 						
 						
 						
-						<form:form modelAttribute="user">
+						<form:form  method="post" modelAttribute="user">
 							${user.id}
 							
 								<br />
@@ -35,8 +35,8 @@
 							
 							<br />
 							
-							<button type="submit" >Edit</button><br/>
-							<button type="submit" >Confirm Details</button>
+							<button name="_eventId_edit" type="submit" class="btn btn-default">Edit</button><br/>
+							<button name="_eventId_submit" type="submit" class="btn btn-default">Confirm Details</button>
 							
 						</form:form>
 					</div>

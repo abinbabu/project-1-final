@@ -87,7 +87,7 @@ public class ProductController {
 		productDAO.saveOrUpdate(product);
  
 		MultipartFile file=product.getImage();
-		FileUtil.upload(path, file,"s"+ product.getId()+".jpg");
+		FileUtil.upload(path, file,product.getId()+".jpg");
 		
 		return "redirect:/manageProducts";
 	}

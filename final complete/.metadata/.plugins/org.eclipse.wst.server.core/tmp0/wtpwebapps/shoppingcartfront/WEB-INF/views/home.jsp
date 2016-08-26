@@ -3,15 +3,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
-
-
 <html>
 <head>
-
+<title>new shop</title>
+<!--css-->
 <link href="<c:url value="/resources/css/menu.css" />"
 	rel="stylesheet">
 	
@@ -36,36 +32,38 @@
 	<link href="<c:url value="/resources/css/owl.carousel.css" />"
 	rel="stylesheet">
 	
-	<link href="<c:url value="/resources/css/styles.css" />"
+	<link href="<c:url value="/resources/css/style.css" />"
 	rel="stylesheet">
 	
 
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
 <link href="<c:url value="/resources/css/carousel.css" />"
 	rel="stylesheet">
-
-
-
-
-
-
-
-
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
 <script src="<c:url value="/resources/js/jquery.min.js" />" type="text/javascript"></script>
 <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
 <!--search jQuery-->
-	
 	<script src="<c:url value="/resources/js/main.js" />" type="text/javascript"></script>
 <!--search jQuery-->
-
 <script src="<c:url value="/resources/js/responsiveslides.min.js" />" type="text/javascript"></script>
  <script>
     $(function () {
@@ -79,18 +77,14 @@
     });
  </script>
  <!--mycart-->
- <script src="<c:url value="/resources/js/bootstrap-3.1.1.min.js" />" type="text/javascript"></script>
-
+<script src="<c:url value="/resources/js/bootstrap-3.1.1.min.js" />" type="text/javascript"></script>
  <!-- cart -->
- <script src="<c:url value="/resources/js/simpleCart.min.js" />" type="text/javascript"></script>
-
+<script src="<c:url value="/resources/js/simpleCart.min.js" />" type="text/javascript"></script>
 <!-- cart -->
   <!--start-rate-->
-  <script src="<c:url value="/resources/js/jstarbox.js" />" type="text/javascript"></script>
+<script src="<c:url value="/resources/js/jstarbox.js" />" type="text/javascript"></script>
 <link href="<c:url value="/resources/css/jstarbox.css" />"
-	rel="stylesheet">
-	
-		<script type="text/javascript">
+	rel="stylesheet">		<script type="text/javascript">
 			jQuery(function() {
 			jQuery('.starbox').each(function() {
 				var starbox = jQuery(this);
@@ -111,88 +105,28 @@
 			});
 		});
 		</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>welcome</title>
+<!--//End-rate-->
 </head>
 <body>
-	<div class="navbar-wrapper">
-		<div class="container">
-
-			<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-						aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">ShOPPIng Cart</a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-
-						<li><a href="https://www.linkedin.com/in/abin-baba-045296b6?trk=nav_responsive_tab_profile_pic">About Me</a></li>
-						<li><a href="https://goo.gl/maps/n1TsMiShtn92">Contact Me</a></li>
-						<li><a href="register">register</a></li>
-						<div class="navbar-form navbar-right">
-
-							<button type="submit" class="btn btn-success" data-toggle="modal"
+	<!--header-->
+		<div class="header">
+			<div class="header-top">
+				<div class="container">
+					 <div class="top-left">
+						<a href="#"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i>8089488004</a>
+					</div>
+					<div class="top-right">
+					<ul>
+						
+						<button type="submit" class="btn btn-success" data-toggle="modal"
 								data-target="#mysignin">Sign in</button>
-
-
-						</div>
+						<li><a href="member.obj"> Create Account </a></li>
 					</ul>
+					</div>
+					<div class="clearfix"></div>
 				</div>
 			</div>
-			</nav>
-
-		</div>
-	</div>
-
-
-
-
-
-	<div class="container">
+			<div class="container">
 
 
 
@@ -234,82 +168,55 @@
 		</div>
 
 	</div>
-
-
-
-
-
-
-	<!-- Carousel
-    ================================================== -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<img class="first-slide"
-					src="<c:url value="/resources/images/ma.png/" />"
-					alt="First slide">
+			<div class="heder-bottom">
 				<div class="container">
-					<div class="carousel-caption">
-						<h1>Hurry..... don't wait..</h1>
-
-						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">Sign
-								up today</a>
-						</p>
+					<div class="logo-nav">
+						<div class="logo-nav-left">
+							<h1><a href="index.html">LifE stYlE <span>Shop anywhere</span></a></h1>
+						</div>
+						<div class="logo-nav-left1">
+							<nav class="navbar navbar-default">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header nav_2">
+								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div> 
+							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="index.html" class="act">Home</a></li>	
+									<!-- Mega Menu -->
+									<li class="dropdown">
+										
+									<li><a href="https://www.linkedin.com/in/abin-baba-045296b6?trk=nav_responsive_tab_profile_pic">About Me</a></li>
+						<li><a href="https://goo.gl/maps/n1TsMiShtn92">Contact Me</a></li>
+								</ul>
+							</div>
+							
+							</nav>
+						</div>
+						<div class="logo-nav-right">
+							
+						</div>
+						<div class="header-right2">
+							<div class="cart box_1">
+								<a href="checkout.html">
+									<h3> <div class="total">
+										
+										<img src="<c:url value="/resources/images/bag.png/" />"   alt="">
+										<a href="myCart"> My Cart </a>
+									</h3>
+								</a>
+								
+								<div class="clearfix"> </div>
+							</div>	
+						</div>
+						<div class="clearfix"> </div>
 					</div>
-				</div>
-			</div>
-			<div class="item">
-				<img class="second-slide"
-					src="<c:url value="/resources/images/shopinggirl.png/" />"
-					alt="Second slide">
-				<div class="carousel-caption">
-					<h1>BIG saLE OffEr</h1>
-
-					<p>
-						<a class="btn btn-lg btn-primary" href="#" role="button">Sign
-							up today</a>
-					</p>
-				</div>
-			</div>
-			<div class="item">
-				<img class="third-slide"
-					src="<c:url value="/resources/images/sam.png/" />"
-					alt="Third slide">
-				<div class="carousel-caption">
-					<h1>Go on....</h1>
-
-					<p>
-						<a class="btn btn-lg btn-primary" href="#" role="button">Sign
-							up today</a>
-					</p>
-				</div>
-			</div>
-		</div>
-		<a class="left carousel-control" href="#myCarousel" role="button"
-			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel" role="button"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-<br> <br> <br><br> <br>
-
-
-
-<div data-role="main" class="ui-content">
-
-			<hr color="red" size="5">
-
-			<ul id="menu">
+					<ul id="menu">
 				<c:if test="${not empty categoryList}">
 					<c:forEach items="${categoryList}" var="category">
 						<li><a href=${category.name}>${category.name}</a>
@@ -325,6 +232,65 @@
 				</c:if>
 
 			</ul>
+				</div>
+			</div>
+		</div>
+		<!--header-->
+		
+		
+		<div>
+		
+		</div>
+		
+		
+		<!--banner-->
+		<div class="banner-w3">
+			<div class="demo-1">            
+				<div id="example1" class="core-slider core-slider__carousel example_1">
+					<div class="core-slider_viewport">
+						<div class="core-slider_list">
+							<div class="core-slider_item">
+								<img src="<c:url value="/resources/images/b1.png/" />"   alt="">
+							</div>
+							 <div class="core-slider_item">
+								 <img src="<c:url value="/resources/images/b2.png/" />"   alt="">
+							 </div>
+							<div class="core-slider_item">
+								  <img src="<c:url value="/resources/images/b3.png/" />"   alt="">
+							</div>
+							<div class="core-slider_item">
+								  <img src="<c:url value="/resources/images/b4.png/" />"   alt="">
+							</div>
+						 </div>
+					</div>
+					<div class="core-slider_nav">
+						<div class="core-slider_arrow core-slider_arrow__right"></div>
+						<div class="core-slider_arrow core-slider_arrow__left"></div>
+					</div>
+					<div class="core-slider_control-nav"></div>
+				</div>
+			</div>
+			<link href="<c:url value="/resources/css/coreSlider.css" />"
+	rel="stylesheet">
+			<script src="<c:url value="/resources/js/coreSlider.js" />" type="text/javascript"></script>
+			
+			<script>
+			$('#example1').coreSlider({
+			  pauseOnHover: false,
+			  interval: 3000,
+			  controlNavEnabled: true
+			});
+
+			</script>
+
+		</div>	
+		<!--banner-->
+		
+		<div data-role="main" class="ui-content">
+
+			<hr color="red" size="5">
+
+			
 			<hr color="red" size="5">
 			<br> <br> <br>
 			<div>
@@ -417,7 +383,7 @@
 			</tr>
 			<tr>
 					
-						<td align="right"><a href="myCart"> My Cart </a></td>
+						<td align="right"></td>
 					
 				</tr>
 		</table>
@@ -465,10 +431,16 @@
 			</c:if>
 		</div>
 		
-	
-	
-	
-<div class="content">
+		
+		
+		
+		
+		
+		
+		
+		
+			<!--content-->
+		<div class="content">
 			<!--banner-bottom-->
 				<div class="ban-bottom-w3l">
 					<div class="container">
