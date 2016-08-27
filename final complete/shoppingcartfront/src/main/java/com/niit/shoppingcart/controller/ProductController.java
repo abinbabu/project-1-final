@@ -203,4 +203,70 @@ public class ProductController {
        //redirectAttrs.addFlashAttribute(arg0, arg1)
         return "redirect:/";
     }
+	
+	@RequestMapping(value = "displayProducts/{name}")
+	public String onClickCategories(@PathVariable("name")String id ,ModelMap model) {
+		log.debug("Start: method onClickCategories");
+        Category category = categoryDAO.getByName(id);
+		model.addAttribute("userClickedCategoryName", true);
+        System.out.println(id);
+		model.addAttribute("category", category);
+		System.out.println(category.getName());
+		log.debug("End: method onClickCategories");
+
+		return "/home";
+	}
+
+	
+	@RequestMapping(value= "/addc/{id}", method = RequestMethod.GET)
+	public String addTooCart(@PathVariable("id") String id, HttpSession session){
+		
+	System.out.println("*****************************************working***************************************************************************************");
+	 Product product =	 productDAO.get(id);
+	 
+	 User user = (User)session.getAttribute("user");
+	 Cart cart = new Cart();
+	 cart.setPrice(product.getPrice());
+	 cart.setProductName(product.getName());
+	 cart.setQuantity(1);
+	  cart.setUser(user);
+	 cart.setStatus("Y");
+	 cart.setTotal(product.getPrice());// 
+		cartDAO.saveOrUpdate(cart);
+//		//return "redirect:/views/home.jsp";
+		return "/home";
+		
+	}
+	
+	@RequestMapping(value = "/addc/myCart", method = RequestMethod.GET)
+	public String myCarts(Model model) {
+		model.addAttribute("category", new Category());
+		model.addAttribute("categoryList", categoryDAO.list());
+	
+		model.addAttribute("cart", new Cart());
+		model.addAttribute("cartList", this.cartDAO.listCart());
+		model.addAttribute("totalAmount", cartDAO.getTotal("user")); // Just to test, passwrdo user
+		model.addAttribute("displayCart", "true");
+		return "/home";
+	}
+	
+	@RequestMapping(value="/addc/deletec/{id}")
+    public String removeCarty(@PathVariable("id") int id,ModelMap model) throws Exception{
+		System.out.println("inside removing***********************************************************************************"+id);
+       
+		cartDAO.delete(id);
+		model.addAttribute("message","Successfully removed");
+	
+		
+		
+       //redirectAttrs.addFlashAttribute(arg0, arg1)
+        return "redirect:/";
+    }
+	
+	@RequestMapping(value = "/addc/pay/{id}")
+	public String mypaymenty(Model model) {
+		
+		return "lastpage";
+	}
+	
 }

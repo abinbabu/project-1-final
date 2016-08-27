@@ -10,6 +10,15 @@
 
 <link href="<c:url value="/resources/css/reg.css" />"
 	rel="stylesheet">
+	
+	<link href="<c:url value="/resources/css/bootstrap.css" />"
+	rel="stylesheet">
+	
+	<link href="<c:url value="/resources/css/style.css" />"
+	rel="stylesheet">
+	
+	<link href="<c:url value="/resources/css/font-awesome.css" />"
+	rel="stylesheet">
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <!-- Latest compiled and minified CSS -->
@@ -25,11 +34,14 @@
 </head>
 <body background="<c:url value="/resources/images/reg.png/" />"> 
 
-	
+<div class="login">
+		<div class="main-agileits">
+				<div class="form-w3agile form1">	
     <form:form  modelAttribute="user" >
-    </br></br></br></br></br></br></br></br></br></br></br></br>
+    </br></br></br>
 		<table align="center">
 			<tr>
+			
 				<td><form:label path="id">
 						<spring:message text="ID" />
 					</form:label></td>
@@ -130,5 +142,16 @@
 		</table>
  
 	</form:form>
+	
+		</div>
+				
+			</div>
+		</div>
+	
+	
+	
+					
+			
+	
 	</body>
 </html>

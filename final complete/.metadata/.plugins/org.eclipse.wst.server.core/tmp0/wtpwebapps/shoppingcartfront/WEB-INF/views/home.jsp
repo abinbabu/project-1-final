@@ -187,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div> 
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								<ul class="nav navbar-nav">
-									<li class="active"><a href="index.html" class="act">Home</a></li>	
+									
 									<!-- Mega Menu -->
 									<li class="dropdown">
 										
@@ -219,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul id="menu">
 				<c:if test="${not empty categoryList}">
 					<c:forEach items="${categoryList}" var="category">
-						<li><a href=${category.name}>${category.name}</a>
+						<li><a  href="<c:url value='displayProducts/${category.name}' />" >${category.name}</a>
 							<ul>
 								<c:forEach items="${category.products}" var="product">
 
@@ -280,7 +280,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  interval: 3000,
 			  controlNavEnabled: true
 			});
-
 			</script>
 
 		</div>	
@@ -319,11 +318,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</table>
 				</c:if>
 			</div>
-
-
 <div id="displayCart">
 				<c:if test="${displayCart==true}">
-
 					<table>
 						<tr>
 							<th align="left" width="80">Cart ID</th>
@@ -331,7 +327,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<th align="left" width="200">Quantity</th>
 							<th align="left" width="80">Price</th>
 							
-
 						</tr>
 						<c:forEach items="${cartList}" var="cart">
 							<tr>
@@ -346,30 +341,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										Proceed</a></td>
 							</tr>
 						</c:forEach>
-
 					</table>
-
 				<%--	<h2>Total cost : ${totalAmount}</h2>
 					 <a href="<c:url value='/pay/${cart.userID}'/>">Proceed</a>  
 					<a href="<c:url value='/pay/${cart.id}'/>">Proceed</a>--%>
 				</c:if>
-
 			</div>
-
-
-
-
-
 		<table width="100%">
 			<tr>
 				<c:choose>
 					<c:when test="${empty loggedInUser}">
-
-
-
-
 					</c:when>
-
 					<c:when test="${not empty loggedInUser}">
 						<td>Welcome ${loggedInUser},</td>
 						<td align="right"><a href="logout"> logout</a></td>
@@ -391,47 +373,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<c:if
 				test="${isUserClickedLoginHere==true || invalidCredentials==true}">
 				<div id="error">${errorMessage}</div>
-
-
 			</c:if>
 		</div>
-
-
 		<div id="isAdmin">
 			<c:if test="${isAdmin==true }">
 				<%@ include file="Isadmin.jsp"%> 
 			</c:if>
 		</div>
-
 		<div id="category">
 			<c:if test="${isAdminCLickedCategory==true }">
 				<%@ include file="Category.jsp"%>
 			</c:if>
 		</div>
-
 		<div id="product">
 			<c:if test="${isAdminClickedProduct==true }">
 				<%@ include file="Product.jsp"%>
 			</c:if>
 		</div>
-
 		<div id="supplier">
 			<c:if test="${isAdminClickedSupplier==true }">
 				<%@ include file="Supplier.jsp"%>
 			</c:if>
 		</div>
-
-
-
-
 		<div id="register">
 			<c:if test="${isUserClickedRegisterHere==true}">
-
-
 			</c:if>
 		</div>
 		
-		
+		<c:if test="${userClickedCategoryName==true}">
+	<%@ include file="displayProducts.jsp"%>
+	
+	</c:if>
 		
 		
 		
@@ -1164,7 +1136,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
 															divUpd.text(newVal);
 														});
-
 														$('.value-minus1').on('click', function(){
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
 															if(newVal>=1) divUpd.text(newVal);
@@ -1228,7 +1199,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
 															divUpd.text(newVal);
 														});
-
 														$('.value-minus1').on('click', function(){
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
 															if(newVal>=1) divUpd.text(newVal);
@@ -1292,7 +1262,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
 															divUpd.text(newVal);
 														});
-
 														$('.value-minus1').on('click', function(){
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
 															if(newVal>=1) divUpd.text(newVal);
@@ -1356,7 +1325,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
 															divUpd.text(newVal);
 														});
-
 														$('.value-minus1').on('click', function(){
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
 															if(newVal>=1) divUpd.text(newVal);
