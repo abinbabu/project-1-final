@@ -60,7 +60,7 @@
 						<spring:message text="User Name" />
 					</form:label></td>
 
-				<td><form:input path="name" 
+				<td><form:input path="name" pattern=".{2,30}" 
 						title="name should not be empty" />
 						
 						
@@ -74,9 +74,9 @@
 						<spring:message text="Password" />
 					</form:label></td>
 
-				<td><form:input path="password" pattern=".{4,15}"
+				<td><form:input path="password" pattern=".{7,15}"
 						
-						title="password should contains 4 to 15 characters" />
+						title="password should contains 7 to 15 characters" />
 						
 						
 						
@@ -106,7 +106,8 @@
 						<spring:message text="Email" />
 					</form:label></td>
 
-				<td><form:input type="email" path="mailid" />
+				<td><form:input type="email" path="mailid" 
+				title="Please enter email"/>
 				
 				
 				
@@ -122,7 +123,8 @@
 						<spring:message text="Address" />
 					</form:label></td>
 
-				<td><form:input path="address"  />
+				<td><form:input path="address" pattern=".{4,30}" 
+				title="max 30"/>
 				
 				
 				

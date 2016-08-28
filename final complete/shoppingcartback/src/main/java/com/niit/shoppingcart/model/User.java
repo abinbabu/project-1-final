@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 @Entity
@@ -17,10 +19,18 @@ import org.springframework.stereotype.Component;
 public class User implements Serializable{
 	@Id
 	private String id;
+	 @NotNull(message="Name cannot be null")
+	 @Size(min=2, max=30)
 	private String name;
+	 @NotNull(message="Name cannot be null")
 	private String mailid;
+	 @NotNull(message="Name cannot be null")
+	 @Size(max=30)
 	private String address;
+	 @NotNull(message="Name cannot be null")
 	private String contactnumber;
+	 @NotNull(message="Name cannot be null")
+	 @Size(min=7)
 	private String password;
 	
 	@OneToMany(mappedBy="user",fetch = FetchType.EAGER)
