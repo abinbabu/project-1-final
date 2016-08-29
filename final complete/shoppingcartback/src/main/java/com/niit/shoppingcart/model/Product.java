@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name="product")
 @Component
-public class Product {
+public class Product  {
 	@Id
 	private String id;
 	private String name;

@@ -5,9 +5,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>display</title>
+
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+<script	src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+
+
+
+
+
+
+
 </head>
 <body>
 <h2 class="title text-center">Products</h2>
+
+
+<a href="<c:url value='/angular' />" >angular</a>
+
+
+
+
+
+
 					
 					 <c:forEach items="${category.products}" var="product">
 					<div class="col-sm-4">
@@ -23,21 +47,32 @@
 									<a href="<c:url value='/addc/${product.id}' />" class="btn btn-default add-to-cart"><i
 										class="fa fa-shopping-cart"></i>Add to cart</a>
 									
-									
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>
+									</br>									
 									
 								</div>
 								
 							</div>
 							
 						</div>
+						
 					</div>
 					</c:forEach>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
+					
+				
 					
 					
 </body>

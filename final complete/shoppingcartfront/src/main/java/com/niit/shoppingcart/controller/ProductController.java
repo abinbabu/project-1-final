@@ -1,5 +1,7 @@
 package com.niit.shoppingcart.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -12,9 +14,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
 import com.niit.shoppingcart.model.Cart;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
@@ -268,5 +272,52 @@ public class ProductController {
 		
 		return "lastpage";
 	}
+	
+	
+	
+//	List<Product> plist=null;
+//	
+//	@RequestMapping("/displayProducts/displayProducts/pds")
+//	public @ResponseBody String getValues()
+//	{	
+//		System.out.println("****************angulaaaaaaaaaaaaaaaaaaaaaaaaaarr*************");
+//		plist=productDAO.list();
+//		for (Product product : plist) {
+//		System.out.println(product.getName());	
+//		}
+//		
+//		Gson gson=new Gson();
+//		System.out.println("*************************************************");
+//		String result= gson.toJson(plist);
+//		return result;
+//		//return "login";
+//		 
+//		}
+	
+	
+	@RequestMapping(value = "/angular")
+	public String angu(Model model) {
+		
+		return "angular";
+	}
+	
+List<Product> plist=null;
+	
+	@RequestMapping("/p")
+	public @ResponseBody String getValues()
+	{	
+		System.out.println("****************angulaaaaaaaaaaaaaaaaaaaaaaaaaarr*************");
+		plist=productDAO.list();
+		for (Product product : plist) {
+		System.out.println(product.getName());	
+		}
+		
+		Gson gson=new Gson();
+		System.out.println("*************************************************");
+		String result= gson.toJson(plist);
+		return result;
+		//return "login";
+		 
+		}
 	
 }
