@@ -34,7 +34,7 @@ public class TestCategoryDAO {
 
 	public void UserTestCase() {
 		int size = categoryDAO.list().size();
-		assertEquals("category list test case ", 3, size);
+		assertEquals("category list test case ", 5, size);
 
 	}
 
