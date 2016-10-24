@@ -1,5 +1,7 @@
 package com.niit.shoppingcart.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.niit.shoppingcart.model.Cart;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.model.User;
 import com.niit.shopppingcartdao.CartDAO;
 import com.niit.shopppingcartdao.CategoryDAO;
 import com.niit.shopppingcartdao.ProductDAO;
@@ -33,13 +36,15 @@ public class CartController {
 
 	
 	@RequestMapping(value = "/myCart", method = RequestMethod.GET)
-	public String myCart(Model model) {
+	public String myCart(Model model,HttpSession session) {
 		model.addAttribute("category", new Category());
 		model.addAttribute("categoryList", categoryDAO.list());
 	
 		model.addAttribute("cart", new Cart());
 		model.addAttribute("cartList", this.cartDAO.listCart());
-		model.addAttribute("totalAmount", cartDAO.getTotal("user")); // Just to test, passwrdo user
+		 User user = (User)session.getAttribute("user");
+		 System.out.println("**************"+user.getId()+"************");
+		model.addAttribute("totalAmount", cartDAO.getTotal(user.getId())); // Just to test, passwrdo user
 		model.addAttribute("displayCart", "true");
 		return "/home";
 	}

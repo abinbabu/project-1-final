@@ -342,8 +342,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</tr>
 						</c:forEach>
 					</table>
-				<%--	<h2>Total cost : ${totalAmount}</h2>
-					 <a href="<c:url value='/pay/${cart.userID}'/>">Proceed</a>  
+					<h2>Total cost : ${totalAmount}</h2>
+					<%-- <a href="<c:url value='/pay/${cart.userID}'/>">Proceed</a>  
 					<a href="<c:url value='/pay/${cart.id}'/>">Proceed</a>--%>
 				</c:if>
 			</div>

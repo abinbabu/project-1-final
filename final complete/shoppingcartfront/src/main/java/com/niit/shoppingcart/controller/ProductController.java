@@ -146,8 +146,8 @@ public class ProductController {
 	 cart.setProductName(product.getName());
 	 cart.setQuantity(1);
 	  cart.setUser(user);
-	 cart.setStatus("Y");
-	 cart.setTotal(product.getPrice());// 
+	 cart.setStatus("N");
+	 /*cart.setTotal(product.getPrice());*/// 
 		cartDAO.saveOrUpdate(cart);
 //		//return "redirect:/views/home.jsp";
 		return "/home";
@@ -155,13 +155,13 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "product/get/addc/myCart", method = RequestMethod.GET)
-	public String myCart(Model model) {
+	public String myCart(Model model,HttpSession session) {
 		model.addAttribute("category", new Category());
 		model.addAttribute("categoryList", categoryDAO.list());
-	
+		 User user = (User)session.getAttribute("user");
 		model.addAttribute("cart", new Cart());
 		model.addAttribute("cartList", this.cartDAO.listCart());
-		model.addAttribute("totalAmount", cartDAO.getTotal("user")); // Just to test, passwrdo user
+		model.addAttribute("totalAmount", cartDAO.getTotal(user.getId())); // Just to test, passwrdo user
 		model.addAttribute("displayCart", "true");
 		return "/home";
 	}
@@ -234,7 +234,7 @@ public class ProductController {
 	 cart.setProductName(product.getName());
 	 cart.setQuantity(1);
 	  cart.setUser(user);
-	 cart.setStatus("Y");
+	 cart.setStatus("N");
 	 cart.setTotal(product.getPrice());// 
 		cartDAO.saveOrUpdate(cart);
 //		//return "redirect:/views/home.jsp";

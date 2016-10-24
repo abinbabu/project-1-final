@@ -24,19 +24,24 @@ AnnotationConfigApplicationContext con = new AnnotationConfigApplicationContext(
 		 user=userDAO.get("abin");
 		Cart cart= (Cart) con.getBean("cart");
 
-		cart.setPrice(100);
+		/*cart.setPrice(300);
 		cart.setQuantity(2);
 		cart.setTotal(200);
 		cart.setProductName("PRDCT");
 		cart.setStatus("N");
 		cart.setUser(user);
 		
-		cartDAO.saveOrUpdate(cart);
+		
+		cartDAO.saveOrUpdate(cart);*/
+		cartDAO.getTotal("abin");
 		
 	
 		System.out.println(user.getId());
 		
 		System.out.println("updated");
+		
+		System.out.println(cartDAO.getTotal("abin"));
+		
 	}
 
 }

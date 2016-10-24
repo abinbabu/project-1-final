@@ -14,6 +14,6 @@ public List<Cart> listCart();
 	
 	public String delete(int id);
 	
-	public int getTotal(String id);
+	public long getTotal(String id);
 
 }
